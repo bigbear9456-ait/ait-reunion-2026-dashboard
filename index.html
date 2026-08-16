@@ -384,7 +384,7 @@
     background: radial-gradient(1000px 300px at 50% -20%, #14345f 0%, var(--navy) 55%, var(--navy-deep) 100%);
     border: 1px solid rgba(201,162,39,0.4);
     border-radius: 14px;
-    padding: 40px 28px;
+    padding: 56px 28px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -393,13 +393,27 @@
     content: "";
     position: absolute;
     left: 50%;
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    opacity: .6;
+    width: 160px;
+    height: 22px;
+    transform: translateX(-50%);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' fill='none'%3E%3Cg stroke='%23C9A227' stroke-width='1.4' fill='none' stroke-linecap='round'%3E%3Cpath d='M100 12 L82 12'/%3E%3Cpath d='M82 12 C78 6, 70 6, 66 12 C70 15, 74 18, 70 22 C64 18, 60 14, 62 8 C64 3, 72 1, 78 5'/%3E%3Cpath d='M62 12 L44 12'/%3E%3Cpath d='M44 12 C41 9, 36 9, 33 12 C36 14, 38 16, 35 19'/%3E%3Cpath d='M33 12 L14 12'/%3E%3Cpath d='M100 12 L118 12'/%3E%3Cpath d='M118 12 C122 6, 130 6, 134 12 C130 15, 126 18, 130 22 C136 18, 140 14, 138 8 C136 3, 128 1, 122 5'/%3E%3Cpath d='M138 12 L156 12'/%3E%3Cpath d='M156 12 C159 9, 164 9, 167 12 C164 14, 162 16, 165 19'/%3E%3Cpath d='M167 12 L186 12'/%3E%3C/g%3E%3Ccircle cx='100' cy='12' r='3' fill='%23C9A227'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: .85;
   }
-  .oath-plaque::before { top: 20px; transform: translateX(-50%); }
-  .oath-plaque::after { bottom: 20px; transform: translateX(-50%); }
+  .oath-plaque::before { top: 22px; }
+  .oath-plaque::after { bottom: 22px; }
+  .oath-divider-mid {
+    width: 120px;
+    height: 18px;
+    margin: 24px auto;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' fill='none'%3E%3Cg stroke='%23C9A227' stroke-width='1.4' fill='none' stroke-linecap='round'%3E%3Cpath d='M100 12 L82 12'/%3E%3Cpath d='M82 12 C78 6, 70 6, 66 12 C70 15, 74 18, 70 22 C64 18, 60 14, 62 8 C64 3, 72 1, 78 5'/%3E%3Cpath d='M62 12 L44 12'/%3E%3Cpath d='M44 12 C41 9, 36 9, 33 12 C36 14, 38 16, 35 19'/%3E%3Cpath d='M33 12 L14 12'/%3E%3Cpath d='M100 12 L118 12'/%3E%3Cpath d='M118 12 C122 6, 130 6, 134 12 C130 15, 126 18, 130 22 C136 18, 140 14, 138 8 C136 3, 128 1, 122 5'/%3E%3Cpath d='M138 12 L156 12'/%3E%3Cpath d='M156 12 C159 9, 164 9, 167 12 C164 14, 162 16, 165 19'/%3E%3Cpath d='M167 12 L186 12'/%3E%3C/g%3E%3Ccircle cx='100' cy='12' r='3' fill='%23C9A227'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: .7;
+  }
   .oath-text {
     font-family: 'Chonburi', 'Fraunces', serif;
     font-size: clamp(17px, 2.6vw, 22px);
@@ -674,16 +688,18 @@
   </div>
 
   <div class="oath-plaque">
-    <p class="oath-text">"นักเรียนเตรียมทหาร<br>จักต้องซื่อสัตย์สุจริต<br>ไม่กล่าวเท็จ ไม่คดโกง<br>ไม่ขโมย<br>และจักไม่ยอมให้ผู้หนึ่งผู้ใด กระทำเช่นนั้นเป็นอันขาด"</p>
+    <p class="oath-text">"นักเรียนเตรียมทหาร<br>จักต้องซื่อสัตย์สุจริต<br>ไม่กล่าวเท็จ ไม่คดโกง<br>ไม่ขโมย<br>และจักไม่ยอมให้ผู้หนึ่งผู้ใด<br>กระทำเช่นนั้นเป็นอันขาด"</p>
+    <div class="oath-divider-mid"></div>
+    <p class="oath-text">"ข้าพระพุทธเจ้า...จักรักษามรดก<br>ของพระองค์ท่าน<br>ไว้ด้วย (เลือด) ชีวิต"</p>
   </div>
 </main>
 
-<footer>สร้างล่าสุด: 16/08/2026 07:49 น. &middot; ข้อมูลจาก AIT_Reunion_Budget.xlsx</footer>
+<footer>สร้างล่าสุด: 16/08/2026 07:57 น. &middot; ข้อมูลจาก AIT_Reunion_Budget.xlsx</footer>
 
 <audio id="bgm" src="song.m4a" loop preload="auto"></audio><button id="musicBtn" class="music-btn" aria-label="เปิด/ปิดเพลง" title="เปิด/ปิดเพลง">&#127925;</button>
 
 <script>
-const DATA = {"totalIncome": 17500.0, "totalExpense": 0, "balance": 17500.0, "paid": 17500.0, "unpaid": 0, "participantCount": 5, "catLabels": [], "catValues": [], "recent": [{"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พล.ต.ณัฐพงศ์ พรหมศร (ตท.26)", "amount": 10000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.ภาสกร ยะสะวุฒิ (ตท.37)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-15", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}], "participants": [{"date": "2026-08-16", "name": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "", "example": false}, {"date": "2026-08-16", "name": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB PromptPay 16/08/2569", "note": "Ref. 260816114508823655", "example": false}, {"date": "2026-08-15", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 15/08/2569", "note": "โอนครั้งที่ 1/2", "example": false}, {"date": "2026-08-16", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "โอนครั้งที่ 2/2", "example": false}, {"date": "2026-08-16", "name": "พล.ต.ณัฐพงศ์ พรหมศร (ตท.26)", "amount": 10000.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB 16/08/2569 13:11", "note": "AIT ทหาร/ตำรวจ @ พี่หมี ตท.26", "example": false}, {"date": "2026-08-16", "name": "พ.อ.ภาสกร ยะสะวุฒิ (ตท.37)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB 16/08/2569 13:58", "note": "AIT-AFAPS by Col.Nick", "example": false}], "showingExample": false, "generatedAt": "16/08/2026 07:49", "eventName": "AIT MILITARY & POLICE HOMECOMING 2026", "eventDateTh": "5 กันยายน 2569", "daysLeft": 19, "eventDateTimeISO": "2026-09-05T17:00:00"};
+const DATA = {"totalIncome": 17500.0, "totalExpense": 0, "balance": 17500.0, "paid": 17500.0, "unpaid": 0, "participantCount": 5, "catLabels": [], "catValues": [], "recent": [{"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พล.ต.ณัฐพงศ์ พรหมศร (ตท.26)", "amount": 10000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.ภาสกร ยะสะวุฒิ (ตท.37)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-15", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}], "participants": [{"date": "2026-08-16", "name": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "", "example": false}, {"date": "2026-08-16", "name": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB PromptPay 16/08/2569", "note": "Ref. 260816114508823655", "example": false}, {"date": "2026-08-15", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 15/08/2569", "note": "โอนครั้งที่ 1/2", "example": false}, {"date": "2026-08-16", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "โอนครั้งที่ 2/2", "example": false}, {"date": "2026-08-16", "name": "พล.ต.ณัฐพงศ์ พรหมศร (ตท.26)", "amount": 10000.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB 16/08/2569 13:11", "note": "AIT ทหาร/ตำรวจ @ พี่หมี ตท.26", "example": false}, {"date": "2026-08-16", "name": "พ.อ.ภาสกร ยะสะวุฒิ (ตท.37)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB 16/08/2569 13:58", "note": "AIT-AFAPS by Col.Nick", "example": false}], "showingExample": false, "generatedAt": "16/08/2026 07:57", "eventName": "AIT MILITARY & POLICE HOMECOMING 2026", "eventDateTh": "5 กันยายน 2569", "daysLeft": 19, "eventDateTimeISO": "2026-09-05T17:00:00"};
 
 function fmt(n) {
   return Math.round(n).toLocaleString('en-US');
