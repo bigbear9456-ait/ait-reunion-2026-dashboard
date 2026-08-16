@@ -368,6 +368,30 @@
     transition: border-color .15s ease, background .15s ease;
   }
   .slip-link:hover { border-color: var(--gold); background: #FBF3DC; }
+  .music-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #14345f, var(--navy-deep));
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 999;
+    transition: transform .15s ease;
+  }
+  .music-btn:active { transform: scale(0.92); }
+  .music-btn.playing { animation: music-pulse 1.6s ease-in-out infinite; }
+  @keyframes music-pulse {
+    0%, 100% { box-shadow: 0 8px 20px rgba(0,0,0,0.35), 0 0 0 0 rgba(201,162,39,0.5); }
+    50% { box-shadow: 0 8px 20px rgba(0,0,0,0.35), 0 0 0 10px rgba(201,162,39,0); }
+  }
   .countdown-box {
     margin-top: 20px;
   }
@@ -612,10 +636,12 @@
   </div>
 </main>
 
-<footer>สร้างล่าสุด: 16/08/2026 06:06 น. &middot; ข้อมูลจาก AIT_Reunion_Budget.xlsx</footer>
+<footer>สร้างล่าสุด: 16/08/2026 06:15 น. &middot; ข้อมูลจาก AIT_Reunion_Budget.xlsx</footer>
+
+<audio id="bgm" src="song.m4a" loop preload="auto"></audio><button id="musicBtn" class="music-btn" aria-label="เปิด/ปิดเพลง" title="เปิด/ปิดเพลง">&#127925;</button>
 
 <script>
-const DATA = {"totalIncome": 5500.0, "totalExpense": 0, "balance": 5500.0, "paid": 5500.0, "unpaid": 0, "participantCount": 4, "catLabels": [], "catValues": [], "recent": [{"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-15", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}], "participants": [{"date": "2026-08-16", "name": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "", "example": false}, {"date": "2026-08-16", "name": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB PromptPay 16/08/2569", "note": "Ref. 260816114508823655", "example": false}, {"date": "2026-08-15", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 15/08/2569", "note": "โอนครั้งที่ 1/2", "example": false}, {"date": "2026-08-16", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "โอนครั้งที่ 2/2", "example": false}], "showingExample": false, "generatedAt": "16/08/2026 06:06", "eventName": "AIT MILITARY & POLICE HOMECOMING 2026", "eventDateTh": "5 กันยายน 2569", "daysLeft": 19, "eventDateTimeISO": "2026-09-05T17:00:00"};
+const DATA = {"totalIncome": 5500.0, "totalExpense": 0, "balance": 5500.0, "paid": 5500.0, "unpaid": 0, "participantCount": 4, "catLabels": [], "catValues": [], "recent": [{"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-15", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}], "participants": [{"date": "2026-08-16", "name": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "", "example": false}, {"date": "2026-08-16", "name": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB PromptPay 16/08/2569", "note": "Ref. 260816114508823655", "example": false}, {"date": "2026-08-15", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 15/08/2569", "note": "โอนครั้งที่ 1/2", "example": false}, {"date": "2026-08-16", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "โอนครั้งที่ 2/2", "example": false}], "showingExample": false, "generatedAt": "16/08/2026 06:15", "eventName": "AIT MILITARY & POLICE HOMECOMING 2026", "eventDateTh": "5 กันยายน 2569", "daysLeft": 19, "eventDateTimeISO": "2026-09-05T17:00:00"};
 
 function fmt(n) {
   return Math.round(n).toLocaleString('en-US');
@@ -700,6 +726,46 @@ if (DATA.participants.length === 0) {
     tr.innerHTML = `<td>${p.date || '-'}</td><td>${p.name}</td><td style="text-align:right;" class="amt-in">${fmt(p.amount)}</td><td><span class="tag ${tagCls}">${p.status}</span></td><td>${p.ref || ''} ${p.note ? '&middot; ' + p.note : ''}</td>`;
     partBody.appendChild(tr);
   });
+}
+
+// เพลงพื้นหลัง: เล่นอัตโนมัติทันทีที่ผู้ใช้แตะหน้าจอ/คลิกครั้งแรก (เบราว์เซอร์บล็อกการเล่นเสียงอัตโนมัติแบบไม่มีการโต้ตอบ)
+var bgm = document.getElementById('bgm');
+var musicBtn = document.getElementById('musicBtn');
+if (bgm && musicBtn) {
+  var hasStarted = false;
+
+  function updateBtn() {
+    if (bgm.paused) {
+      musicBtn.innerHTML = '&#127925;';
+      musicBtn.classList.remove('playing');
+    } else {
+      musicBtn.innerHTML = '&#128266;';
+      musicBtn.classList.add('playing');
+    }
+  }
+
+  function tryAutoStart() {
+    if (hasStarted) return;
+    hasStarted = true;
+    bgm.play().then(updateBtn).catch(function() {
+      hasStarted = false; // เบราว์เซอร์บล็อกไว้ รอโต้ตอบครั้งถัดไป
+    });
+  }
+
+  document.addEventListener('pointerdown', tryAutoStart, { once: false, passive: true });
+  document.addEventListener('touchstart', tryAutoStart, { once: false, passive: true });
+
+  musicBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (bgm.paused) {
+      bgm.play().then(updateBtn).catch(function(){});
+    } else {
+      bgm.pause();
+      updateBtn();
+    }
+  });
+
+  updateBtn();
 }
 </script>
 </body>
