@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="งานเลี้ยงคืนสู่เหย้าศิษย์เก่า เตรียมทหาร-AIT (ทหาร-ตำรวจ) 5 กันยายน 2569 เวลา 17.00 น. ณ ร้านอาหารเพลิน วิภาวดี (ห้องชวนเพลิน 2) — ระบบสรุปยอดบัญชีงานแบบเรียลไทม์">
 <meta name="twitter:image" content="https://ait-milpol2026reunion.netlify.app/poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Chonburi&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #0B2545;
@@ -378,6 +378,46 @@
     transition: border-color .15s ease, background .15s ease;
   }
   .slip-link:hover { border-color: var(--gold); background: #FBF3DC; }
+  .oath-plaque {
+    margin: 32px auto 0;
+    max-width: 720px;
+    background: radial-gradient(1000px 300px at 50% -20%, #14345f 0%, var(--navy) 55%, var(--navy-deep) 100%);
+    border: 1px solid rgba(201,162,39,0.4);
+    border-radius: 14px;
+    padding: 40px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .oath-plaque::before, .oath-plaque::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    opacity: .6;
+  }
+  .oath-plaque::before { top: 20px; transform: translateX(-50%); }
+  .oath-plaque::after { bottom: 20px; transform: translateX(-50%); }
+  .oath-text {
+    font-family: 'Chonburi', 'Fraunces', serif;
+    font-size: clamp(17px, 2.6vw, 22px);
+    line-height: 2.1;
+    color: var(--gold-light);
+    text-shadow: 0 0 20px rgba(228,199,101,0.5), 0 0 40px rgba(228,199,101,0.22);
+    letter-spacing: .01em;
+    margin: 0;
+  }
+  .oath-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #A9B8CC;
+    margin-top: 18px;
+    opacity: .85;
+  }
   .music-btn {
     position: fixed;
     right: 18px;
@@ -632,14 +672,19 @@
       </div>
     </div>
   </div>
+
+  <div class="oath-plaque">
+    <p class="oath-text">"นักเรียนเตรียมทหาร จักต้องซื่อสัตย์สุจริต<br>ไม่กล่าวเท็จ ไม่คดโกง ไม่ขโมย<br>และจักไม่ยอมให้ผู้หนึ่งผู้ใด กระทำเช่นนั้นเป็นอันขาด"</p>
+    <p class="oath-caption">คติพจน์นักเรียนเตรียมทหาร</p>
+  </div>
 </main>
 
-<footer>สร้างล่าสุด: 16/08/2026 07:20 น. &middot; ข้อมูลจาก AIT_Reunion_Budget.xlsx</footer>
+<footer>สร้างล่าสุด: 16/08/2026 07:32 น. &middot; ข้อมูลจาก AIT_Reunion_Budget.xlsx</footer>
 
 <audio id="bgm" src="song.m4a" loop preload="auto"></audio><button id="musicBtn" class="music-btn" aria-label="เปิด/ปิดเพลง" title="เปิด/ปิดเพลง">&#127925;</button>
 
 <script>
-const DATA = {"totalIncome": 17500.0, "totalExpense": 0, "balance": 17500.0, "paid": 17500.0, "unpaid": 0, "participantCount": 5, "catLabels": [], "catValues": [], "recent": [{"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พล.ต.ณัฐพงศ์ พรหมศร (ตท.26)", "amount": 10000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.ภาสกร ยะสะวุฒิ (ตท.37)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-15", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}], "participants": [{"date": "2026-08-16", "name": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "", "example": false}, {"date": "2026-08-16", "name": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB PromptPay 16/08/2569", "note": "Ref. 260816114508823655", "example": false}, {"date": "2026-08-15", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 15/08/2569", "note": "โอนครั้งที่ 1/2", "example": false}, {"date": "2026-08-16", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "โอนครั้งที่ 2/2", "example": false}, {"date": "2026-08-16", "name": "พล.ต.ณัฐพงศ์ พรหมศร (ตท.26)", "amount": 10000.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB 16/08/2569 13:11", "note": "AIT ทหาร/ตำรวจ @ พี่หมี ตท.26", "example": false}, {"date": "2026-08-16", "name": "พ.อ.ภาสกร ยะสะวุฒิ (ตท.37)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB 16/08/2569 13:58", "note": "AIT-AFAPS by Col.Nick", "example": false}], "showingExample": false, "generatedAt": "16/08/2026 07:20", "eventName": "AIT MILITARY & POLICE HOMECOMING 2026", "eventDateTh": "5 กันยายน 2569", "daysLeft": 19, "eventDateTimeISO": "2026-09-05T17:00:00"};
+const DATA = {"totalIncome": 17500.0, "totalExpense": 0, "balance": 17500.0, "paid": 17500.0, "unpaid": 0, "participantCount": 5, "catLabels": [], "catValues": [], "recent": [{"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พล.ต.ณัฐพงศ์ พรหมศร (ตท.26)", "amount": 10000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-16", "type": "รายรับ", "detail": "พ.อ.ภาสกร ยะสะวุฒิ (ตท.37)", "amount": 2000.0, "extra": "จ่ายแล้ว"}, {"date": "2026-08-15", "type": "รายรับ", "detail": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "extra": "จ่ายแล้ว"}], "participants": [{"date": "2026-08-16", "name": "น.อ.ยงยศ โรจชะยะ (ตท.38)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "", "example": false}, {"date": "2026-08-16", "name": "พ.อ.สมโภช ปัณฑวังกูร (ตท.33)", "amount": 1500.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB PromptPay 16/08/2569", "note": "Ref. 260816114508823655", "example": false}, {"date": "2026-08-15", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 15/08/2569", "note": "โอนครั้งที่ 1/2", "example": false}, {"date": "2026-08-16", "name": "น.อ.เศรษฐชัย ศรีทอง (ตท.32)", "amount": 1000.0, "status": "จ่ายแล้ว", "ref": "สลิป SCB 16/08/2569", "note": "โอนครั้งที่ 2/2", "example": false}, {"date": "2026-08-16", "name": "พล.ต.ณัฐพงศ์ พรหมศร (ตท.26)", "amount": 10000.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB 16/08/2569 13:11", "note": "AIT ทหาร/ตำรวจ @ พี่หมี ตท.26", "example": false}, {"date": "2026-08-16", "name": "พ.อ.ภาสกร ยะสะวุฒิ (ตท.37)", "amount": 2000.0, "status": "จ่ายแล้ว", "ref": "สลิป TTB 16/08/2569 13:58", "note": "AIT-AFAPS by Col.Nick", "example": false}], "showingExample": false, "generatedAt": "16/08/2026 07:32", "eventName": "AIT MILITARY & POLICE HOMECOMING 2026", "eventDateTh": "5 กันยายน 2569", "daysLeft": 19, "eventDateTimeISO": "2026-09-05T17:00:00"};
 
 function fmt(n) {
   return Math.round(n).toLocaleString('en-US');
